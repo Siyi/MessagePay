@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    
+    <ImageView
+        android:id="@+id/settingTop"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/setting_top"
+        android:src="@drawable/setting_top" />
+    
+       <com.facebook.widget.LoginButton
+        android:id="@+id/authButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        />
+
+       <ImageView
+           android:id="@+id/settingDown"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:adjustViewBounds="true"
+           android:contentDescription="@string/setting_down"
+           android:src="@drawable/setting_down" />
+
+</LinearLayout>
