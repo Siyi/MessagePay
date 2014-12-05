@@ -1,20 +1,20 @@
 package com.example.messagepay;
 
+
 import com.facebook.FacebookException;
 import com.facebook.widget.FriendPickerFragment;
 import com.facebook.widget.PickerFragment;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
 public class PickerActivity extends FragmentActivity{
-	public static final Uri FRIEND_PICKER = Uri.parse("picker://friend");
-	private FriendPickerFragment friendPickerFragment;
 	
+	private FriendPickerFragment friendPickerFragment;
+		
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -23,9 +23,7 @@ public class PickerActivity extends FragmentActivity{
 	    Bundle args = getIntent().getExtras();
 	    android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
 	    Fragment fragmentToShow = null;
-	    Uri intentUri = getIntent().getData();
 
-	    if (FRIEND_PICKER.equals(intentUri)) {
 	        if (savedInstanceState == null) {
 	            friendPickerFragment = new FriendPickerFragment(args);
 	        } else {
@@ -51,12 +49,6 @@ public class PickerActivity extends FragmentActivity{
 	        });
 	        fragmentToShow = friendPickerFragment;
 
-	    } else {
-	        // Nothing to do, finish
-	        setResult(RESULT_CANCELED);
-	        finish();
-	        return;
-	    }
 
 	    manager.beginTransaction()
 	           .replace(R.id.picker_fragment, fragmentToShow)
@@ -84,6 +76,9 @@ public class PickerActivity extends FragmentActivity{
 	}
 
 	private void finishActivity() {
+		PayApplication payApp = (PayApplication) getApplication();
+		if(friendPickerFragment != null)
+			payApp.setSelectedUsers(friendPickerFragment.getSelection());
 	    setResult(RESULT_OK, null);
 	    finish();
 	}
@@ -91,13 +86,11 @@ public class PickerActivity extends FragmentActivity{
 	@Override
 	protected void onStart() {
 	    super.onStart();
-	    if (FRIEND_PICKER.equals(getIntent().getData())) {
 	        try {
 	            friendPickerFragment.loadData(false);
 	        } catch (Exception ex) {
 	            onError(ex);
 	        }
-	    }
 	}
 
 }

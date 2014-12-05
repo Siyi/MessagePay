@@ -11,5 +11,14 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="setting_top">SettingTop</string>
     <string name="setting_down">SettingDown</string>
-
+    <string name="transfer_top">TransferTop</string>
+    <string name="title_activity_transfer">Transfer</string>
+    <string name="amount">Amount: $0.00USD"</string>
+    <string name="message">Message: (Optional)</string>
+    <string name="friendsButton">Friends</string>
+    <string name="emailhint">To:Email or Mobile Number</string>
+    <string name="title_activity_payment_confirm">PaymentConfirmActivity</string>
+    <string name="payment_top">PaymentTop</string>
+    <string name="send_more_money">Send More Money</string>
+    <string name="To">To: </string>
 </resources>

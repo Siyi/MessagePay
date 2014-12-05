@@ -2,10 +2,12 @@ package com.example.messagepay;
 
 import com.facebook.AppEventsLogger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class Paypal extends FragmentActivity {
@@ -39,6 +41,10 @@ public class Paypal extends FragmentActivity {
     	AppEventsLogger.deactivateApp(this);
     }
 
+    public void transferClick(View view){
+		Intent intent = new Intent(this, TransferActivity.class);
+		this.startActivity(intent);
+	}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

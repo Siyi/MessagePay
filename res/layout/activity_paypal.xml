@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     
-    <ImageView
+      <ImageView
         android:id="@+id/settingTop"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -18,7 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
         />
 
        <ImageView
@@ -27,6 +28,9 @@
            android:layout_height="wrap_content"
            android:adjustViewBounds="true"
            android:contentDescription="@string/setting_down"
-           android:src="@drawable/setting_down" />
-
+           android:src="@drawable/setting_down"
+           android:onClick="transferClick"
+           android:layout_gravity="bottom"
+            />
+       
 </LinearLayout>
