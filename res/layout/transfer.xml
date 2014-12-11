@@ -20,16 +20,15 @@
             android:src="@drawable/shop"
             />
         <LinearLayout 
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-              android:layout_weight="2"
             >
          <ImageView 
             android:id="@+id/send_image"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="6dp"
             android:layout_marginLeft="10dp"
             android:adjustViewBounds="true"
             android:src="@drawable/send"
@@ -80,24 +79,15 @@
         android:layout_below="@id/amount_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:layout_marginTop="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="60dp"
         android:hint="@string/message"
         android:textColorHint="#C0C0C0" />         
-    <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/message_text"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@color/green"
-            android:layout_centerInParent="true"
-            android:onClick="friends_click"
-            android:text="@string/friendsButton" />
+   
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/authButton" >
+        android:layout_below="@id/message_text" >
         <ImageView
             android:layout_width="0dp"
             android:layout_height="42dp"
