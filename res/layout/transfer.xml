@@ -1,51 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/transfer_top"
-        android:onClick="next_click"
-        android:src="@drawable/transfer_top" />
-
+    android:layout_height="match_parent" >
     <LinearLayout
+        android:id="@+id/transfer_top" 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal" >
-
-        <EditText
+        android:layout_height="50dp"
+        android:background="@color/green"
+        >
+        <ImageView 
+            android:id="@+id/shop"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/shop"
+            />
+        <LinearLayout 
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+              android:layout_weight="2"
+            >
+         <ImageView 
+            android:id="@+id/send_image"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/send"
+            android:onClick="sendClick"
+            />
+         <ImageView 
+            android:id="@+id/request_image"
+            android:layout_width="0dp"
+            android:layout_height="43dp"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/request"
+            android:onClick="requestClick"
+            />             
+        </LinearLayout>
+        <ImageView 
+            android:id="@+id/next"
+             android:layout_width="0dp"
+            android:layout_height="43dp"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/next"
+            android:onClick="nextClick"
+            />      
+    </LinearLayout> 
+    <EditText
             android:id="@+id/email_input"
-            android:layout_width="wrap_content"
+            android:layout_below="@id/transfer_top"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:hint="@string/emailhint"
-            android:textColorHint="#C0C0C0" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="friends_click"
-            android:text="@string/friendsButton" />
-    </LinearLayout>
-
+            android:textColorHint="#C0C0C0"
+             />
     <EditText
         android:id="@+id/amount_text"
+        android:layout_below="@id/email_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:hint="@string/amount"
-        android:layout_marginTop="5dp"
         android:textColorHint="#C0C0C0" />
 
     <EditText
         android:id="@+id/message_text"
+        android:layout_below="@id/amount_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+         android:layout_marginTop="20dp"
         android:hint="@string/message"
-        android:layout_marginTop="5dp"
-        android:textColorHint="#C0C0C0" />           
+        android:textColorHint="#C0C0C0" />         
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/message_text"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/green"
+            android:layout_centerInParent="true"
+            android:onClick="friends_click"
+            android:text="@string/friendsButton" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/authButton" >
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:src="@drawable/facebook" 
+            android:onClick="friends_click"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:src="@drawable/twitter" />
 
-</LinearLayout>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:src="@drawable/pinterest" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:src="@drawable/instagram" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:src="@drawable/googleplus" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:src="@drawable/linkedin" />
+    </LinearLayout>
+    <include layout="@layout/bottom"/>
+</RelativeLayout>

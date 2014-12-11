@@ -6,18 +6,21 @@
     android:orientation="vertical">
 
     <ImageView
+        android:id="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="50dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/payment_top"
         android:src="@drawable/payment_top" />
     
     <ImageView
+        android:id="@+id/more"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/send_button"
         android:contentDescription="@string/send_more_money"
+        android:layout_margin="15dp"
         android:onClick="send_more_click"
         />
     

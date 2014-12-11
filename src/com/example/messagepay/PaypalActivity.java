@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 
-public class Paypal extends FragmentActivity {
+public class PaypalActivity extends FragmentActivity {
 	
 	private MainFragment mainFragment;
 
@@ -45,7 +45,11 @@ public class Paypal extends FragmentActivity {
 		Intent intent = new Intent(this, TransferActivity.class);
 		this.startActivity(intent);
 	}
-
+    
+    public void settingsClick(View view){
+    }
+    
+  
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
