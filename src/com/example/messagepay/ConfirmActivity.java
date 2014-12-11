@@ -64,19 +64,6 @@ public class ConfirmActivity extends Activity {
 		RequestParam param = new RequestParam(totalamount, facebookIds, actionType);
 		new RequestTask().execute(param);
 		
-		//test notification
-		
-		new Request(
-			    Session.getActiveSession(),
-			    "me/friends",
-			    null,
-			    HttpMethod.GET,
-			    new Request.Callback() {
-			        public void onCompleted(Response response) {
-			            System.out.println("8888"+response);
-			        }
-			    }
-			).executeAsync();
 		this.startActivity(intent);
 	}
 }

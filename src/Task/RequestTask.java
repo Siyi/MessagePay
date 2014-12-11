@@ -19,43 +19,44 @@ import com.facebook.Session;
 
 import android.os.AsyncTask;
 
-public class RequestTask extends AsyncTask<RequestParam, Void, Void>{
+public class RequestTask extends AsyncTask<RequestParam, Void, String>{
+	RequestParam requestPara=null;
 
 	@Override
-	protected Void doInBackground(RequestParam... params) {
+	protected String doInBackground(RequestParam... params) {
 		RequestParam requestParam= params[0];
-		 HttpClient httpclient = new DefaultHttpClient();	 
+		 HttpClient httpclient = new DefaultHttpClient();
+		 String result = null;
 		 String url = "http://messagepay.herokuapp.com/Pay?amount="+ requestParam.getTotal()+"&facebookid="+requestParam.getFacebookIds();		 
 		 HttpPost httppost = new HttpPost(url);	 	 
-		 try {
-				HttpResponse response = httpclient.execute(httppost);
-				String jsonString = EntityUtils.toString(response.getEntity());
-				if(!jsonString.equals("SUCCESS")){
-					System.out.println(jsonString);
-			}
-					
-			} catch (ClientProtocolException e) {
-			} catch (IOException e) {
-			}
-		return null;
+		 HttpResponse response;
+		try {
+			response = httpclient.execute(httppost);
+			result = EntityUtils.toString(response.getEntity());
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}							
+		return result;
 		
 	}
 	
-	/*@Override
-	protected void onPostExecute(Void result) {
-		// TODO Auto-generated method stub
+	@Override
+	protected void onPostExecute(String result) {
 		super.onPostExecute(result);
 		new Request(
 			    Session.getActiveSession(),
-			    "/me/notifications",
-			    1379064282388125/notifications?access_token=308190689370512|pMvOlstfRQeN1_eqboQL5ZqZPMw&template=SocialPay&href=Claim?claimReq=123456
+			    requestPara.getFacebookIds()+"/notifications?access_token=308190689370512|pMvOlstfRQeN1_eqboQL5ZqZPMw&template=SocialPay&href="+result,
 			    null,
 			    HttpMethod.POST,
 			    new Request.Callback() {
 			        public void onCompleted(Response response) {
-			             handle the result 
+			             return;
 			        }
 			    }
 			).executeAsync();
-	}*/
+	}
 }
