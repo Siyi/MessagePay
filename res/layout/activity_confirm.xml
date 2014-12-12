@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     <RelativeLayout 
+        android:id="@+id/confirm_top"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/green">
@@ -15,6 +16,7 @@
             android:onClick="backClick"
             />
          <TextView 
+            android:id="@+id/confirm_title"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
@@ -37,7 +39,7 @@
             android:clickable="true"
             />   
     </RelativeLayout>
-  
+    
     <TextView
         android:id="@+id/total"
         android:layout_width="match_parent"
@@ -47,7 +49,35 @@
         android:singleLine="true"
         android:text="@string/total"
         android:textStyle="bold"
-        android:textSize="10pt" />
+        android:textSize="15pt" />
+      <TextView 
+        android:id="@+id/userSplit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/money_split" 
+        android:textSize="12pt" 
+         />
+      
+      <TextView 
+        android:id="@+id/towho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="65dp"
+        android:textStyle="bold"
+        android:text="@string/money_split" 
+        android:textSize="10pt" 
+         />
+    <ListView 
+        android:id="@+id/userList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:dividerHeight="10dp"
+        android:divider="@null"
+        ></ListView> 
 </LinearLayout>
 
 

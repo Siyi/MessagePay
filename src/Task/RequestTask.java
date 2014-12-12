@@ -2,6 +2,8 @@ package Task;
 
 
 import java.io.IOException;
+import java.net.URLEncoder;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -24,10 +26,11 @@ public class RequestTask extends AsyncTask<RequestParam, Void, String>{
 
 	@Override
 	protected String doInBackground(RequestParam... params) {
-		RequestParam requestParam= params[0];
+		requestPara= params[0];
 		 HttpClient httpclient = new DefaultHttpClient();
 		 String result = null;
-		 String url = "http://messagepay.herokuapp.com/Pay?amount="+ requestParam.getTotal()+"&facebookid="+requestParam.getFacebookIds();		 
+		 String url = "http://messagepay.herokuapp.com/"+requestPara.getActionType()+"?amount="+requestPara.getTotal()+"&facebookid="+requestPara.getFacebookIds()+"&memo="+requestPara.getMemo();		 
+		 System.out.println(url);
 		 HttpPost httppost = new HttpPost(url);	 	 
 		 HttpResponse response;
 		try {
@@ -47,16 +50,22 @@ public class RequestTask extends AsyncTask<RequestParam, Void, String>{
 	@Override
 	protected void onPostExecute(String result) {
 		super.onPostExecute(result);
-		new Request(
-			    Session.getActiveSession(),
-			    requestPara.getFacebookIds()+"/notifications?access_token=308190689370512|pMvOlstfRQeN1_eqboQL5ZqZPMw&template=SocialPay&href="+result,
-			    null,
-			    HttpMethod.POST,
-			    new Request.Callback() {
-			        public void onCompleted(Response response) {
-			             return;
-			        }
-			    }
-			).executeAsync();
+		if(result.equals("SUCCESS"))return;
+		//System.out.println(requestPara.getFacebookIds()+"/notifications?access_token=308190689370512|pMvOlstfRQeN1_eqboQL5ZqZPMw&template=SocialPay&href="+result);
+		new FacebookCallTask().execute(result, requestPara.getFacebookIds());
+		System.out.println(result);
+		System.out.println(requestPara.getFacebookIds());
+		
+//		new Request(
+//			    Session.getActiveSession(),
+//			    requestPara.getFacebookIds()+"/notifications?access_token=308190689370512|b954c8ec8a6113477ef4d822133bd99a&template=SocialPay&href="+result,
+//			    null,
+//			    HttpMethod.POST,
+//			    new Request.Callback() {
+//			        public void onCompleted(Response response) {
+//			             System.out.println(response);
+//			        }
+//			    }
+//			).executeAsync();
 	}
 }

@@ -26,6 +26,7 @@
     <string name="back">Back</string>
     <string name="send_money">Send Money</string>
     <string name="send">Send</string>
-    <string name="total">Total: %1$d x %2$d = $%3$d USD</string>
+    <string name="total">Total: $%d USD</string>
     <string name="send_request">Send Request</string>
+    <string name="money_split">Each Person: $%d USD</string>
 </resources>

@@ -6,11 +6,13 @@ public class RequestParam {
 	private int total;
 	private String facebookIds;
 	private String actionType;
+	private String memo;
 	
-	public RequestParam(int total, String facebookIds, String actionType) {
+	public RequestParam(int total, String facebookIds, String actionType, String memo) {
 		this.total = total;
 		this.facebookIds = facebookIds;
 		this.actionType = actionType;
+		this.memo = memo;
 	}
 
 	public int getTotal() {
@@ -35,6 +37,14 @@ public class RequestParam {
 
 	public void setActionType(String actionType) {
 		this.actionType = actionType;
+	}
+
+	public String getMemo() {
+		return memo;
+	}
+
+	public void setMemo(String memo) {
+		this.memo = memo;
 	}
 
 }

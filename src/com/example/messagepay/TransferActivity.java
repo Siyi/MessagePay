@@ -92,6 +92,8 @@ public class TransferActivity extends Activity {
 			intent.putExtra(Constants.HOW_MUCH, howmuch);
 			intent.putExtra(Constants.NUM_PERSONS, howmany);
 			intent.putExtra(Constants.SEND_OR_REQUEST_FLAG, flag);
+			if(messageInput.getText()!=null)
+			   intent.putExtra(Constants.MEMO, messageInput.getText().toString() );
 			this.startActivity(intent);
 		}
 	}
@@ -102,6 +104,8 @@ public class TransferActivity extends Activity {
 		emailInput.setHint(this.getResources().getString(R.string.request_emailhint));
 		nextImageView.setImageResource(R.drawable.request_image);
 		flag = Constants.REQUEST_MONEY_FLAG;
+		emailInput.setText("");
+		amountInput.setText("");
 		
 	}
 	
